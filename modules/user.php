@@ -10,7 +10,7 @@ class user {
 		$this->userid = $uid;
 		$this->DB = DB::getDB();
 
-		$getStmt = $this->DB->prepare('SELECT count(*) from `users` WHERE `user_id` = ?');
+		$getStmt = $this->DB->prepare("SELECT count(*) from `users` WHERE `user_id` = ?");
         $getStmt->bind_param('i', $uid);
         $getStmt->bind_result($count);
         $getStmt->execute();
@@ -18,7 +18,7 @@ class user {
         $getStmt->close();
 
         if(!$count) {
-            $insStmt = $this->DB->prepare('INSERT INTO `users` (`user_id`, `name`, `facebook_friends`, `facebook_access_token`, `status`, `data`, `last_updated`, `created_on`) VALUES (?, '', '', '', 1, '', NOW(), NOW())');
+            $insStmt = $this->DB->prepare("INSERT INTO `users` (`user_id`, `name`, `facebook_friends`, `facebook_access_token`, `status`, `data`, `last_updated`, `created_on`) VALUES (?, '', '', '', 1, '', NOW(), NOW())");
             $insStmt->bind_param('i', $uid);
             $insStmt->execute();
             $insStmt->close();
@@ -51,11 +51,11 @@ class user {
     }
 
 	public function updateFacebookUser($access_token, $friends) {
-		$insStmt = $this->DB->prepare('UPDATE `users`
+		$insStmt = $this->DB->prepare("UPDATE `users`
                 SET facebook_access_token = ?,
                 	facebook_friends = ?,
                 	last_updated = NOW()
-                WHERE user_id = ?');
+                WHERE user_id = ?");
         
         $sfriend = '';
         foreach($friends as $friend) {
