@@ -24,8 +24,8 @@ class user {
             $insStmt->close();
         }
 
-        $getStmt = $this->DB->prepare("SELECT * from `users` WHERE `user_id` = ?");
-        $getStmt = $this->DB->prepare($getQuery);
+        $getQuer = $this->DB->prepare("SELECT * from `users` WHERE `user_id` = ?");
+        $getStmt = $this->DB->prepare($getQuer);
         $getStmt->bind_param('i', $uid);
         $getStmt->execute();
         $getStmt->store_result();
