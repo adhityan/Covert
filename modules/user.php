@@ -32,7 +32,6 @@ class user {
         if($getStmt->num_rows >= 1) {
             $user_data = DB::bind_result_array($getStmt);
             $getStmt->fetch();
-            $getStmt->close();
             // sanitize name for security and convert to letter case
             
             $this->data = $user_data;
