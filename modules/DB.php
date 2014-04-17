@@ -7,7 +7,7 @@ class DB {
     private static function init() {
       if(!isset($db)) {
         global $_settings;
-        self::$db = new mysqli($_settings['host'], $_settings['username'], $_settings['password'], $_settings['database'], $_settings['port']);
+        self::$db = new mysqli($_settings['db']['host'], $_settings['db']['username'], $_settings['db']['password'], $_settings['db']['database'], $_settings['db']['port']);
       }
     }
 
