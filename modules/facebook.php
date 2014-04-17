@@ -3,7 +3,7 @@ include_once('application.php');
 
 class facebook {
 	public function fbconnect($access_token) {
-		require_once '/Facebook/facebook.php';
+		require_once 'Facebook/facebook.php';
         // Create our Application instance.
         $facebook = new Facebook(array(
             'appId'  => $_settings['facebook']['app_id'],
