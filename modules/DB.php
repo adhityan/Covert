@@ -1,4 +1,6 @@
 <?php
+include_once('application.php');
+
 class DB {
     private static $db;
 

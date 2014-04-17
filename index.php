@@ -1,4 +1,4 @@
-<?php include('application.php');?>
+<?php include_once('application.php'); ?>
 <html>
 <head></head>
 <body>

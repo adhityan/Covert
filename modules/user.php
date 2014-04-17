@@ -1,4 +1,5 @@
 <?php
+include_once('application.php');
 
 class user {
 	private $userid;
