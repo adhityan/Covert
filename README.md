@@ -1,4 +1,4 @@
 Covert
 ======
 
-All covert operations are developed here
+A web app to share your secrets with your friends, without them knowing.
