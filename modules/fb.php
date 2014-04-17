@@ -7,7 +7,7 @@ class fb {
         global $_settings;
 
         $U = new user(1);
-        $U->updateFacebookUser('xx', array(array('id' => 1), array('id' => 2)));
+        $U->addPost(array('is_image' => 0, 'image_url' => '', 'post_text' => 'test'));
         die;
         // Create our Application instance.
         $facebook = new Facebook(array(

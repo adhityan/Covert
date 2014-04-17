@@ -66,6 +66,28 @@ class user {
         $insStmt->bind_param('ssi', $access_token, $sfriend, $this->userid);
         $insStmt->execute();
 	}
+
+    public function addPost($postinfo) {
+        $insStmt = $this->DB->prepare("INSERT INTO `posts` (`creator_id`, `image_post`, `image_url`, `post_text`, `status`, `spam_reports`, `likes`, `last_updated`, `created_on`) VALUES (?, ?, ?, ?, 1, 0, 0, NOW(), NOW())");
+        $insStmt->bind_param('iiss', $this->userid, $postinfo['is_image'], $postinfo['image_url'], $postinfo['post_text']);
+        $insStmt->execute();
+        $insStmt->close();
+        $post_id = $insStmt->insert_id;
+
+        $friends = explode(',' $data['facebook_friends']);
+        array_push($friends, $this->userid);
+
+        foreach ($friends as $friendid) {
+            try {
+                $insStmt = $this->DB->prepare("INSERT INTO `post_visibility` (`post_id`, `viewer_id`) VALUES (?, ?)");
+                $insStmt->bind_param('ii', $post_id, $friendid);
+                $insStmt->execute();
+                $insStmt->close();
+            } catch (Exception $e) { }
+        }
+
+        return $post_id;
+    }
 }
 
 ?>
