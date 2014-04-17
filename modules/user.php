@@ -30,7 +30,7 @@ class user {
         $getStmt->execute();
         $getStmt->store_result();
         if($getStmt->num_rows >= 1) {
-            $user_data = $this->DB->bind_result_array($getStmt);
+            $user_data = DB::bind_result_array($getStmt);
             $getStmt->fetch();
             $getStmt->close();
             // sanitize name for security and convert to letter case
