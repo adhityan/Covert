@@ -71,7 +71,7 @@ class user {
         $insStmt = $this->DB->prepare("INSERT INTO `posts` (`creator_id`, `image_post`, `image_url`, `post_text`, `status`, `spam_reports`, `likes`, `last_updated`, `created_on`) VALUES (?, ?, ?, ?, 1, 0, 0, NOW(), NOW())");
         $insStmt->bind_param('iiss', $this->userid, $postinfo['is_image'], $postinfo['image_url'], $postinfo['post_text']);
         $insStmt->execute();
-        $getStmt->store_result();
+        $insStmt->store_result();
         $post_id = $insStmt->insert_id;
         $insStmt->close();
 
