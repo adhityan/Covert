@@ -74,7 +74,7 @@ class user {
         $insStmt->close();
         $post_id = $insStmt->insert_id;
 
-        $friends = explode(',' $data['facebook_friends']);
+        $friends = explode(',', $this->data['facebook_friends']);
         array_push($friends, $this->userid);
 
         foreach ($friends as $friendid) {
