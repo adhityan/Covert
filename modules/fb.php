@@ -1,7 +1,7 @@
 <?php
 include_once('application.php');
 
-class facebook {
+class fb {
 	public function fbconnect($access_token) {
 		require_once 'Facebook/facebook.php';
         // Create our Application instance.

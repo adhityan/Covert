@@ -1,7 +1,7 @@
 <?php
 include_once('application.php');
 
-$F = new facebook();
+$F = new fb();
 $F->fbconnect('x');	
 
 ?>
