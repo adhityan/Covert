@@ -6,7 +6,8 @@ class DB {
 
     private static function init() {
       if(!isset($db)) {
-        self::$db = new mysqli('petunia.arvixe.com', 'zen', 'zencard101', 'zenmaster', 3306);
+        global $_settings;
+        self::$db = new mysqli($_settings['host'], $_settings['username'], $_settings['password'], $_settings['database'], $_settings['port']);
       }
     }
 
